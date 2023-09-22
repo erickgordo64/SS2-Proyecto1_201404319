@@ -1,0 +1,839 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/21/2023 7:45:15 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WORKSTATION"
+  DTS:CreatorName="WORKSTATION\erick"
+  DTS:DTSID="{D7D8ED5E-5869-48D5-AA57-8D8D33F64024}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="4106"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{01735267-374D-4FC6-B952-47CEF3CBCF80}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WORKSTATION\SQLEXPRESS.ht21]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6F8E15E1-F8A6-4003-8ECA-170416D4FD0C}"
+      DTS:ObjectName="WORKSTATION\SQLEXPRESS.ht21">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=WORKSTATION\SQLEXPRESS;Initial Catalog=ht2;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{6F8E15E1-F8A6-4003-8ECA-170416D4FD0C}WORKSTATION\SQLEXPRESS.ht21;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WORKSTATION\SQLEXPRESS.proyecto1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6D2F2622-3C6B-4670-BCF7-632DA1C81CB5}"
+      DTS:ObjectName="WORKSTATION\SQLEXPRESS.proyecto1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=WORKSTATION\SQLEXPRESS;Initial Catalog=proyecto1;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{6D2F2622-3C6B-4670-BCF7-632DA1C81CB5}WORKSTATION\SQLEXPRESS.proyecto1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2ADDCD55-1959-4DD5-B52A-F29BF8E2302B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Delimitador">
+      <DTS:VariableValue
+        DTS:DataType="8">|</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A5A431FD-C465-4FE1-956F-4D556F9E6953}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DestinoCompra">
+      <DTS:VariableValue
+        DTS:DataType="8">Compras</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9004BAC4-D058-4A83-95C3-A850461D9A94}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DestinoVenta">
+      <DTS:VariableValue
+        DTS:DataType="8">Ventas</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C8D9ECB9-A37C-4E30-BB97-6000FB7AB5A6}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Errores">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\erick\Documents\2s2023\semi 2\laboratorio\proyecto1\Errores</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A7BF99D4-4A68-4659-BB20-006DACA2DF0F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExtensionC">
+      <DTS:VariableValue
+        DTS:DataType="8">.comp</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{94ADF352-0A58-4BE7-8C52-A424C24BB9C0}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExtensionV">
+      <DTS:VariableValue
+        DTS:DataType="8">.vent</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{958B5FEB-0AA2-4699-977A-9F6CA47ADDB5}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FolderArchivos">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\erick\Documents\2s2023\semi 2\laboratorio\proyecto1\ArchivosEntrada</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task Ventas"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{E2841113-C0D7-49C1-B87F-336B853C48F5}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task Ventas"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task Ventas\OLE DB Source Ventas"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source Ventas"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Ventas]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WORKSTATION\SQLEXPRESS.proyecto1]"
+                  connectionManagerRefId="Package.ConnectionManagers[WORKSTATION\SQLEXPRESS.proyecto1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[Fecha]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[Fecha]"
+                      length="10"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[Fecha]"
+                      name="Fecha"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[CodigoCliente]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[CodigoCliente]"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[CodigoCliente]"
+                      name="CodigoCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[NombreCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[NombreCliente]"
+                      length="255"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[NombreCliente]"
+                      name="NombreCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[TipoCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[TipoCliente]"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[TipoCliente]"
+                      name="TipoCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[DireccionCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[DireccionCliente]"
+                      length="255"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[DireccionCliente]"
+                      name="DireccionCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[NumeroCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[NumeroCliente]"
+                      length="20"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[NumeroCliente]"
+                      name="NumeroCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[CodVendedor]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[CodVendedor]"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[CodVendedor]"
+                      name="CodVendedor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[NombreVendedor]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[NombreVendedor]"
+                      length="255"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[NombreVendedor]"
+                      name="NombreVendedor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[Vacacionista]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[Vacacionista]"
+                      length="20"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[Vacacionista]"
+                      name="Vacacionista"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[CodProducto]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[CodProducto]"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[CodProducto]"
+                      name="CodProducto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[NombreProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[NombreProducto]"
+                      length="255"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[NombreProducto]"
+                      name="NombreProducto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[MarcaProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[MarcaProducto]"
+                      length="100"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[MarcaProducto]"
+                      name="MarcaProducto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[Categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[Categoria]"
+                      length="100"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[Categoria]"
+                      name="Categoria"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[CodSucursal]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[CodSucursal]"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[CodSucursal]"
+                      name="CodSucursal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[NombreSucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[NombreSucursal]"
+                      length="255"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[NombreSucursal]"
+                      name="NombreSucursal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[DireccionSucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[DireccionSucursal]"
+                      length="255"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[DireccionSucursal]"
+                      name="DireccionSucursal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[Region]"
+                      name="Region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[Departamento]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[Departamento]"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[Departamento]"
+                      name="Departamento"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[Unidades]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[Unidades]"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[Unidades]"
+                      name="Unidades"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[PrecioUnitario]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[PrecioUnitario]"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].Columns[PrecioUnitario]"
+                      name="PrecioUnitario"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[Fecha]"
+                      dataType="wstr"
+                      length="10"
+                      name="Fecha" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[CodigoCliente]"
+                      dataType="i4"
+                      name="CodigoCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[NombreCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="NombreCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[TipoCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TipoCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[DireccionCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="DireccionCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[NumeroCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="NumeroCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[CodVendedor]"
+                      dataType="i4"
+                      name="CodVendedor" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[NombreVendedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="NombreVendedor" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[Vacacionista]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Vacacionista" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[CodProducto]"
+                      dataType="i4"
+                      name="CodProducto" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[NombreProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="NombreProducto" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[MarcaProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="MarcaProducto" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[Categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Categoria" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[CodSucursal]"
+                      dataType="i4"
+                      name="CodSucursal" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[NombreSucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="NombreSucursal" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[DireccionSucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="DireccionSucursal" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[Departamento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Departamento" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[Unidades]"
+                      dataType="i4"
+                      name="Unidades" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Output].ExternalColumns[PrecioUnitario]"
+                      dataType="numeric"
+                      name="PrecioUnitario"
+                      precision="10"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[Fecha]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[Fecha]"
+                      name="Fecha" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[CodigoCliente]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[CodigoCliente]"
+                      name="CodigoCliente" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[NombreCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[NombreCliente]"
+                      name="NombreCliente" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[TipoCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[TipoCliente]"
+                      name="TipoCliente" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[DireccionCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[DireccionCliente]"
+                      name="DireccionCliente" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[NumeroCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[NumeroCliente]"
+                      name="NumeroCliente" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[CodVendedor]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[CodVendedor]"
+                      name="CodVendedor" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[NombreVendedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[NombreVendedor]"
+                      name="NombreVendedor" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[Vacacionista]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[Vacacionista]"
+                      name="Vacacionista" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[CodProducto]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[CodProducto]"
+                      name="CodProducto" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[NombreProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[NombreProducto]"
+                      name="NombreProducto" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[MarcaProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[MarcaProducto]"
+                      name="MarcaProducto" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[Categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[Categoria]"
+                      name="Categoria" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[CodSucursal]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[CodSucursal]"
+                      name="CodSucursal" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[NombreSucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[NombreSucursal]"
+                      name="NombreSucursal" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[DireccionSucursal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[DireccionSucursal]"
+                      name="DireccionSucursal" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      name="Region" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[Departamento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[Departamento]"
+                      name="Departamento" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[Unidades]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[Unidades]"
+                      name="Unidades" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[PrecioUnitario]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[PrecioUnitario]"
+                      name="PrecioUnitario"
+                      precision="10"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task Ventas\OLE DB Source Ventas.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Ejecutar SQL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{5847BBC2-D946-4AF5-868B-8322B3CC9D89}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Ejecutar SQL"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6D2F2622-3C6B-4670-BCF7-632DA1C81CB5}"
+          SQLTask:SqlStatementSource="-- Truncar la tabla Ventas&#xA;TRUNCATE TABLE Ventas;&#xA;&#xA;-- Truncar la tabla Compras&#xA;TRUNCATE TABLE Compras;&#xA;&#xA;-- Truncar la tabla VentasHecho&#xA;TRUNCATE TABLE VentasHecho;&#xA;&#xA;-- Truncar la tabla ComprasHecho&#xA;TRUNCATE TABLE ComprasHecho;&#xA;&#xA;-- Truncar la tabla ClienteDimension&#xA;TRUNCATE TABLE ClienteDimension;&#xA;&#xA;-- Truncar la tabla VendedorDimension&#xA;TRUNCATE TABLE VendedorDimension;&#xA;&#xA;-- Truncar la tabla ProductoDimension&#xA;TRUNCATE TABLE ProductoDimension;&#xA;&#xA;-- Truncar la tabla SucursalDimension&#xA;TRUNCATE TABLE SucursalDimension;&#xA;&#xA;-- Truncar la tabla ProveedorDimension&#xA;TRUNCATE TABLE ProveedorDimension;&#xA;&#xA;-- Truncar la tabla FechaDimension&#xA;TRUNCATE TABLE FechaDimension;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Script"
+      DTS:CreationName="Microsoft.ScriptTask"
+      DTS:Description="Tarea Script"
+      DTS:DTSID="{8771A3ED-E8FD-4B91-8D2B-4EBCD484952D}"
+      DTS:ExecutableType="Microsoft.ScriptTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Script"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ScriptProject
+          Name="ST_a7efd025e5df419292b70a47e6ac2019"
+          VSTAMajorVersion="16"
+          VSTAMinorVersion="0"
+          Language="CSharp"
+          ReadOnlyVariables="User::Delimitador,User::DestinoCompra,User::DestinoVenta,User::Errores,User::ExtensionC,User::ExtensionV,User::FolderArchivos" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{1CD4CCA4-1357-4855-96CF-4EED51815E10}"
+      DTS:From="Package\Tarea Ejecutar SQL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Tarea Script" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{A177D054-5149-4087-8BB4-142F79F8E0FB}"
+      DTS:From="Package\Tarea Script"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 1"
+      DTS:To="Package\Data Flow Task Ventas" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="170.666666666667,42.6666666666667"
+          Id="Package\Tarea Ejecutar SQL"
+          TopLeft="34.3749994877726,38.9999993026257" />
+        <NodeLayout
+          Size="136,42.6666666666667"
+          Id="Package\Tarea Script"
+          TopLeft="182.499997280538,148.199997349978" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="119.708332821106,81.6666659692923">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="130.791664459432,66.5333313806852"
+              Start="0,0"
+              End="130.791664459432,59.0333313806852">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.2666656903426" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.2666656903426"
+                    Point2="0,33.2666656903426"
+                    Point3="4,33.2666656903426" />
+                  <mssgle:LineSegment
+                    End="126.791664459432,33.2666656903426" />
+                  <mssgle:CubicBezierSegment
+                    Point1="126.791664459432,33.2666656903426"
+                    Point2="130.791664459432,33.2666656903426"
+                    Point3="130.791664459432,37.2666656903426" />
+                  <mssgle:LineSegment
+                    End="130.791664459432,59.0333313806852" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="186.666666666667,42.6666666666667"
+          Id="Package\Data Flow Task Ventas"
+          TopLeft="357.499994672835,233.999995815754" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="250.499997280538,190.866664016644">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="200.33333072563,43.1333317991099"
+              Start="0,0"
+              End="200.33333072563,35.6333317991099">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5666658995549" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5666658995549"
+                    Point2="0,21.5666658995549"
+                    Point3="4,21.5666658995549" />
+                  <mssgle:LineSegment
+                    End="196.33333072563,21.5666658995549" />
+                  <mssgle:CubicBezierSegment
+                    Point1="196.33333072563,21.5666658995549"
+                    Point2="200.33333072563,21.5666658995549"
+                    Point3="200.33333072563,25.5666658995549" />
+                  <mssgle:LineSegment
+                    End="200.33333072563,35.6333317991099" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task Ventas">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="185.333333333334,42.6666666666667"
+          Id="Package\Data Flow Task Ventas\OLE DB Source Ventas"
+          TopLeft="43.7499993480742,56.5499989888072" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task Ventas\OLE DB Source Ventas">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
